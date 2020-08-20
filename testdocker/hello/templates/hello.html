@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello</title>
+</head>
+<body>
+  <div>
+    {% for h in hellos %}
+      <p>{{h.head}} : {{h.context}}</p>
+    {% endfor %}
+  </div>
+  <hr>
+  <form method="post">
+    {% csrf_token %}
+    <p>Head: <input name="head"></p>
+    <p>Context: <input name="context" ></p>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
