@@ -19,7 +19,7 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
       with:
         source: "."
-        target: "/var/www/mywebsite"
+        target: "git_action"
 
     - name: Executing remote command
       uses: appleboy/ssh-action@master
@@ -29,5 +29,6 @@ jobs:
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
         script: ls
-    
+    - name: Run project
+      run: sudo docker-compose up --build
    
