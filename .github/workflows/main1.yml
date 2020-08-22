@@ -24,8 +24,12 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        target: ${{secrets.PROJECT_PATH}} 
-        script: whoami
+#         target: ${{secrets.PROJECT_PATH}} 
+        script: |
+          ls \
+          cd git_action \
+          git pull origin master \
+          sudo docker-compose up --build
     # Runs a single command using the runners shell
 #     - name: Push to vps
 #       uses: appleboy/ssh-action@master
@@ -41,6 +45,6 @@ jobs:
 #         password: ${{ secrets.PASSWORD }}
 #         username: ${{ secrets.USERNAME }}
     #    script: cd ${{ secrets.PROJECT_PATH }} && git pull
-    # Runs a set of commands using the runners shell
-    - name: Run project
-      run: sudo docker-compose up --build -d
+#     # Runs a set of commands using the runners shell
+#     - name: Run project
+#       run: sudo docker-compose up --build -d
