@@ -22,14 +22,15 @@ jobs:
     - name: Push to vps
       uses: appleboy/ssh-action@master
       env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSHKEY }}
-        REMOTE_HOST: ${{secrets.HOST}}
-        REMOTE_USER: ${{ secrets.USERNAME }}
-        REMOTE_PORT: ${{secrets.PORT}}
-        TARGET: ${{ secrets.PROJECT_PATH }}
-#         host: ${{secrets.HOST}} 
-#         port: ${{secrets.PORT}} 
-#         password: ${{secrets.PASSWORD}}
+#         SSH_PRIVATE_KEY: ${{ secrets.SSHKEY }}
+#         REMOTE_HOST: ${{secrets.HOST}}
+#         REMOTE_USER: ${{ secrets.USERNAME }}
+#         REMOTE_PORT: ${{secrets.PORT}}
+#         TARGET: ${{ secrets.PROJECT_PATH }}
+        host: ${{ secrets.HOST }} 
+        port: ${{ secrets.PORT }} 
+        password: ${{ secrets.PASSWORD }}
+        username: ${{ secrets.USERNAME }}
     #    script: cd ${{ secrets.PROJECT_PATH }} && git pull
     # Runs a set of commands using the runners shell
     - name: Run project
