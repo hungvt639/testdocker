@@ -27,6 +27,7 @@ jobs:
         REMOTE_USER: ${{ secrets.USERNAME }}
         REMOTE_PORT: ${{secrets.PORT}}
         TARGET: ${{ secrets.PROJECT_PATH }}
+        REMOTE_PASSWORD: ${{ secrets.PASSWORD }}
 #         host: ${{ secrets.HOST }} 
 #         port: ${{ secrets.PORT }} 
 #         password: ${{ secrets.PASSWORD }}
