@@ -29,5 +29,8 @@ services:
 networks:
   base:
 #
+
+
+
 #volumes:
 #  mariadb-data:
