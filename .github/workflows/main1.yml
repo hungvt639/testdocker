@@ -24,17 +24,18 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
+        target: ${{secrets.PROJECT_PATH}} 
         script: whoami
     # Runs a single command using the runners shell
-    - name: Push to vps
-      uses: appleboy/ssh-action@master
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSHKEY }}
-        REMOTE_HOST: ${{secrets.HOST}}
-        REMOTE_USER: ${{ secrets.USERNAME }}
-        REMOTE_PORT: ${{secrets.PORT}}
-        TARGET: ${{ secrets.PROJECT_PATH }}
-        REMOTE_PASSWORD: ${{ secrets.PASSWORD }}
+#     - name: Push to vps
+#       uses: appleboy/ssh-action@master
+#       env:
+#         SSH_PRIVATE_KEY: ${{ secrets.SSHKEY }}
+#         REMOTE_HOST: ${{secrets.HOST}}
+#         REMOTE_USER: ${{ secrets.USERNAME }}
+#         REMOTE_PORT: ${{secrets.PORT}}
+#         TARGET: ${{ secrets.PROJECT_PATH }}
+#         REMOTE_PASSWORD: ${{ secrets.PASSWORD }}
 #         host: ${{ secrets.HOST }} 
 #         port: ${{ secrets.PORT }} 
 #         password: ${{ secrets.PASSWORD }}
