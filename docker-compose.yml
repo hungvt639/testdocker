@@ -14,7 +14,8 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - /home/vth/data/:/var/lib/mysql/
+#      - /home/vth/data/:/var/lib/mysql/
+      - mariadb-data:/var/lib/mysql/
 
   django-web:
     restart: always
@@ -32,5 +33,5 @@ networks:
 
 
 
-#volumes:
-#  mariadb-data:
+volumes:
+  mariadb-data:
