@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: executing remote ssh commands using password
-      uses: ./
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        target: ${{secrets.PROJECT_PATH}} 
+#     - name: executing remote ssh commands using password
+#       uses: ./
+#       with:
+#         host: ${{ secrets.HOST }}
+#         username: ${{ secrets.USERNAME }}
+#         password: ${{ secrets.PASSWORD }}
+#         port: ${{ secrets.PORT }}
+#         target: ${{secrets.PROJECT_PATH}} 
 #         script: |
 #           ls \
 #           cd git_action/ \
