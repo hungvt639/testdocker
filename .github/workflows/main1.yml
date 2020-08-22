@@ -17,13 +17,13 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-#         target: ${{secrets.PROJECT_PATH}} 
-        script: |
-          ls \
-          cd git_action/ \
-          git pull origin master \
-          cd testdocker/ \
-          sudo docker-compose up --build
+        target: ${{secrets.PROJECT_PATH}} 
+#         script: |
+#           ls \
+#           cd git_action/ \
+#           git pull origin master \
+#           cd testdocker/ \
+#           sudo docker-compose up --build
     # Runs a single command using the runners shell
 #     - name: Push to vps
 #       uses: appleboy/ssh-action@master
