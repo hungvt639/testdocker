@@ -20,10 +20,8 @@ jobs:
         target: ${{secrets.PROJECT_PATH}} 
         script: |
           cd git_action/testdocker/
-          ls
           git pull origin master
-          ls
-          sudo docker-compose up --build
+          sudo docker-compose up --build -d
     # Runs a single command using the runners shell
 #     - name: Push to vps
 #       uses: appleboy/ssh-action@master
