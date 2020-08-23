@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xàm Xí Đú</title>
+</head>
+<body>
+
+    {% if nguois %}
+        <div>
+            <h1>Danh sách người đã điền thông tin</h1>
+            <br>
+            {% for n in nguois %}
+                <p>Tên: {{n.name}} | Tuổi: {{n.age}}
+            {% endfor %}
+        </div>
+        <hr>
+    {% endif %}
+    <script type="text/javascript">
+		alert('Bạn tên {{nguoi.name}}, {{nguoi.age}} tuổi');
+	</script>
+    <br>
+    <h3>Bạn tên {{nguoi.name}}, {{nguoi.age}} tuổi</h3>
+    <br>
+    <hr>
+    <a href="{% url 'xam_xi' %}">Quay lại</a>
+</body>
+</html>
