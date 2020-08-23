@@ -43,10 +43,10 @@ class xam_xi(View):
     def post(self, request):
         try:
             nguoi = Nguoi()
+            nguois = Nguoi.objects.all()
             nguoi.name = request.POST['name']
             nguoi.age = request.POST['age']
             nguoi.save()
-            nguois = Nguoi.objects.all()
             return render(request, 'xam_xi_du.html', {"nguoi": nguoi, "nguois": nguois})
         except Exception as e:
             raise e
