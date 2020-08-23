@@ -29,5 +29,6 @@ services:
       - "8000:8000"
 networks:
   base:
+
 volumes:
   mariadb-data:
