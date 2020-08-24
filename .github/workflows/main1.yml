@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      
     - name: Build and push Docker images
       uses: docker/build-push-action@v1
       with:
@@ -18,35 +19,15 @@ jobs:
         repository: sevolloves/test1
         tags: test1  
       
-      
-#     - name: executing remote ssh commands using password
-#       uses: appleboy/ssh-action@master
-#       with:
-#         host: ${{ secrets.HOST }}
-#         username: ${{ secrets.USERNAME }}
-#         password: ${{ secrets.PASSWORD }}
-#         port: ${{ secrets.PORT }}
-#         target: ${{secrets.PROJECT_PATH}} 
-#         script: |
-#           cd git_action/testdocker/
-#           git pull origin master
-#           sudo docker-compose up -d --build
-#           sudo docker-compose ps
-    # Runs a single command using the runners shell
-#     - name: Push to vps
-#       uses: appleboy/ssh-action@master
-#       env:
-#         SSH_PRIVATE_KEY: ${{ secrets.SSHKEY }}
-#         REMOTE_HOST: ${{secrets.HOST}}
-#         REMOTE_USER: ${{ secrets.USERNAME }}
-#         REMOTE_PORT: ${{secrets.PORT}}
-#         TARGET: ${{ secrets.PROJECT_PATH }}
-#         REMOTE_PASSWORD: ${{ secrets.PASSWORD }}
-#         host: ${{ secrets.HOST }} 
-#         port: ${{ secrets.PORT }} 
-#         password: ${{ secrets.PASSWORD }}
-#         username: ${{ secrets.USERNAME }}
-    #    script: cd ${{ secrets.PROJECT_PATH }} && git pull
-#     # Runs a set of commands using the runners shell
-#     - name: Run project
-#       run: sudo docker-compose up --build -d
+    - name: Connect VPS
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        target: ${{secrets.PROJECT_PATH}} 
+        script: |
+          cd dockerhub/
+          sudo docker pull sevolloves/test1:test1
+          sudo docker-compose up -d django-web
