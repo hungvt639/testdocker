@@ -49,4 +49,4 @@ class xam_xi(View):
             nguoi.save()
             return render(request, 'xam_xi_du.html', {"nguoi": nguoi, "nguois": nguois})
         except Exception as e:
-            raise e
+            return redirect('sos')
