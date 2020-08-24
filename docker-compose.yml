@@ -3,6 +3,7 @@ services:
   db:
     image: mysql:5.7
     restart: always
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_bin
     environment:
       MYSQL_ROOT_PASSWORD: "rootpassword"
       MYSQL_DATABASE: "bh"
@@ -18,10 +19,11 @@ services:
       - mariadb-data:/var/lib/mysql/
 
   django-web:
+    image: sevolloves/test1
     restart: always
-    build:
-      context: .
-      dockerfile: Dockerfile
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
     networks:
       - base
 #    network_mode: "host"
